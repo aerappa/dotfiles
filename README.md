@@ -6,6 +6,7 @@ This repository contains my personal configuration files (dotfiles) for various 
 
 The repository is organized as follows:
 
+```
 .
 ├── fish/
 │   └── .config/
@@ -31,6 +32,7 @@ The repository is organized as follows:
 │               └── en.utf-8.add.spl
 └── tmux/
     └── .tmux.conf
+```
 
 *Note: Some `fish/functions` files are symlinks to external sources.*
 
