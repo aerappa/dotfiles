@@ -1,0 +1,1 @@
+/home/arappapo/.local/share/omf/themes/gentoo/fish_prompt.fish

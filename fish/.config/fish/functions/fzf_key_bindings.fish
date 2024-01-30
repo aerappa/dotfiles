@@ -1,0 +1,1 @@
+/home/arappapo/.fzf/shell/key-bindings.fish
