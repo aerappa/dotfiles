@@ -17,9 +17,8 @@ The repository is organized as follows:
 │           ├── fish_greeting.fish
 │           ├── fish_variables
 │           └── functions/
-│               ├── fish_prompt.fish -> [symlink]
 │               ├── fish_user_key_bindings.fish
-│               └── fzf_key_bindings.fish -> [symlink]
+│               └── fzf_key_bindings.fish
 ├── git/
 │   └── .gitconfig
 ├── nvim/
@@ -34,7 +33,6 @@ The repository is organized as follows:
     └── .tmux.conf
 ```
 
-*Note: Some `fish/functions` files are symlinks to external sources.*
 
 ## Usage
 
