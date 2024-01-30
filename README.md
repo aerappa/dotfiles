@@ -44,8 +44,10 @@ The repository is organized as follows:
 
 To apply the dotfiles (e.g., for `fish`), navigate to the root of this repository and use GNU Stow:
 
+```
 cd path/to/dotfiles
 stow fish
+```
 
 This will create the necessary symlinks in your home directory (e.g., `~/.config/fish` pointing to `dotfiles/fish/.config/fish`).
 
@@ -53,17 +55,23 @@ This will create the necessary symlinks in your home directory (e.g., `~/.config
 
 To manage configurations for individual applications, use Stow with the specific directory name. For example, for Git:
 
+```
 stow git
+```
 
 And for Neovim:
 
+```
 stow nvim
+```
 
 ### Removing Dotfiles
 
 If you wish to remove the symlinks, you can do so with Stow's delete command. For example:
 
+```
 stow -D fish
+```
 
 ## Customization
 
