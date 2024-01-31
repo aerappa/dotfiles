@@ -19,7 +19,6 @@ end
 
 
 fish_vi_key_bindings
-export DEAL_II_DIR=/home/ari/software/dealii/dealii-9.2.0/build
 export EDITOR=vim
 set fish_greeting fish_greeting + "C'est parti !"
 alias ls="/usr/bin/ls --color=auto -vp"
