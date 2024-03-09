@@ -42,10 +42,11 @@ The repository is organized as follows:
 
 ### Applying Dotfiles
 
+***Warning: You must clone the repository in your home directory!***
 To apply the dotfiles (e.g., for `fish`), navigate to the root of this repository and use GNU Stow:
 
 ```
-cd path/to/dotfiles
+cd ~/dotfiles
 stow fish
 ```
 
