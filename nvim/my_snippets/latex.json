@@ -1,0 +1,64 @@
+{
+  "frame": {
+    "prefix": "frame",
+    "body": [
+      "\\begin{frame}{${1:frametitle}}",
+      "\t$0",
+      "\\end{frame}"
+    ],
+    "description": "LaTeX Beamer Frame"
+  },
+  "columns": {
+    "prefix": "columns",
+    "body": [
+      "\\begin{columns}",
+      "\\begin{column}{0.5\\textwidth}",
+      "\t$0",
+      "\\end{column}",
+      "\\begin{column}{0.5\\textwidth}",
+      "\\end{column}",
+      "\\end{columns}"
+    ],
+    "description": "LaTeX Beamer Columns"
+  },
+    "figure": {
+        "prefix": "figure",
+        "body": "\\begin{figure}[${1:htbp}]\n\t\\centering\n\t${0:${TM_SELECTED_TEXT}}\n\t\\caption{${2:<caption>}}\\label{${3:<label>}}\n\\end{figure}",
+        "description": "figure"
+    },
+    "wrapEnv": {
+        "prefix": "begin",
+        "body": "\n\\begin{$1}\n\t${0:${TM_SELECTED_TEXT}}\n\\end{$1}",
+        "description": "Wrap selection into an environment"
+    },
+    "align": {
+        "prefix": "BAL",
+        "body": "\\begin{align}\n\t${0:${TM_SELECTED_TEXT}}\n\\end{align}",
+        "description": "align environment"
+    },
+    "align*": {
+        "prefix": "BSAL",
+        "body": "\\begin{align*}\n\t${0:${TM_SELECTED_TEXT}}\n\\end{align*}",
+        "description": "align* environment"
+    },
+    "equation": {
+        "prefix": "BEQ",
+        "body": "\\begin{equation}\n\t${0:${TM_SELECTED_TEXT}}\n\\end{equation}",
+        "description": "equation environment"
+    },
+    "equation*": {
+        "prefix": "BSEQ",
+        "body": "\\begin{equation*}\n\t${0:${TM_SELECTED_TEXT}}\n\\end{equation*}",
+        "description": "equation* environment"
+    },
+    "itemize": {
+        "prefix": "BIT",
+        "body": "\\begin{itemize}\n\t\\item ${0:${TM_SELECTED_TEXT}}\n\\end{itemize}",
+        "description": "itemize environment"
+    },
+    "enumerate": {
+        "prefix": "BEN",
+        "body": "\\begin{enumerate}\n\t\\item ${0:${TM_SELECTED_TEXT}}\n\\end{enumerate}",
+        "description": "enumerate environment"
+    }
+}

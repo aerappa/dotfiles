@@ -239,6 +239,10 @@ require('lazy').setup({
   {
     "pocco81/true-zen.nvim",
   },
+  {
+  "holomorph/vim-freefem",
+  }
+
   -- {
   --   "neoclide/coc.nvim",
   --   branch = "release",
@@ -536,7 +540,10 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
-require('luasnip.loaders.from_vscode').lazy_load()
+local custom_snippet_path = vim.fn.expand("$HOME/.config/nvim/my_snippets/")
+print("Loading snippets from: " .. custom_snippet_path)
+--require('luasnip.loaders.from_vscode').lazy_load()
+require('luasnip.loaders.from_vscode').lazy_load({paths = {custom_snippet_path}})
 luasnip.config.setup {}
 
 cmp.setup {
