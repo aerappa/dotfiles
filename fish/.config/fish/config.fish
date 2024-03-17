@@ -19,6 +19,6 @@ end
 
 
 fish_vi_key_bindings
-export EDITOR=vim
+export EDITOR=nvim
 set fish_greeting fish_greeting + "C'est parti !"
 alias ls="/usr/bin/ls --color=auto -vp"
