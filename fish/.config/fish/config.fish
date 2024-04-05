@@ -1,3 +1,7 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
 function fish_greeting
     echo '                 '(set_color F00)'___
   ___======____='(set_color FF7F00)'-'(set_color FF0)'-'(set_color FF7F00)'-='(set_color F00)')
@@ -20,5 +24,6 @@ end
 
 fish_vi_key_bindings
 export EDITOR=nvim
+fzf_key_bindings
 set fish_greeting fish_greeting + "C'est parti !"
 alias ls="/usr/bin/ls --color=auto -vp"
