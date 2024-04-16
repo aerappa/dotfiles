@@ -599,12 +599,5 @@ cmp.setup {
   },
 }
 
-
-vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
-  pattern = "*.tex",
-  callback = function()
-    vim.opt_local.spell = true
-  end,
-})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
