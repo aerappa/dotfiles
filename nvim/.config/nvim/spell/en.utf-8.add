@@ -16,3 +16,7 @@ nonlinearities
 Genuchten
 Mualem
 timesteps
+DOF
+DOFs
+hybridizable
+Galerkin

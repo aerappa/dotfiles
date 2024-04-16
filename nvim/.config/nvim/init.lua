@@ -145,9 +145,10 @@ require('lazy').setup({
     },
   },
   {
-    "sainnhe/sonokai",
+    --"sainnhe/sonokai",
+    'tanvirtin/monokai.nvim',
     config = function()
-      vim.cmd.colorscheme 'sonokai'
+      vim.cmd.colorscheme 'monokai_soda'
     end,
 
   },
@@ -496,7 +497,7 @@ end
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
+  clangd = {},
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
@@ -534,6 +535,11 @@ mason_lspconfig.setup_handlers {
       filetypes = (servers[server_name] or {}).filetypes,
     }
   end
+}
+
+require'lspconfig'.julials.setup{
+    cmd = {"/home/arappapo/.juliaup/bin/julia", "--project=@nvim", "-e", "using LanguageServer; LanguageServerInstance(stdin, stdout, false, \"/path/to/your/project\", Dict())"},
+
 }
 
 -- [[ Configure nvim-cmp ]]
@@ -593,5 +599,12 @@ cmp.setup {
   },
 }
 
+
+vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
+  pattern = "*.tex",
+  callback = function()
+    vim.opt_local.spell = true
+  end,
+})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
