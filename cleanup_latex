@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+
+def cleanup_latex(prefix):
+    # Directory to clean up, default to the current directory
+    dir_to_clean = "."
+
+    # Extensions to keep
+    keep_extensions = {'.tex', '.pdf', '.bib'}
+
+    # Walk through the directory
+    for root, dirs, files in os.walk(dir_to_clean):
+        for file in files:
+            # Check if the file matches the prefix and is not in the keep list
+            if file.startswith(prefix) and os.path.splitext(file)[1].lower() not in keep_extensions:
+                # Construct the full file path
+                file_path = os.path.join(root, file)
+                print(f"Deleting: {file_path}")
+                # Uncomment the next line to actually delete the files
+                os.remove(file_path)
+
+    print("Cleanup complete.")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: cleanup_latex <prefix>")
+        sys.exit(1)
+
+    # Get the prefix from command-line arguments
+    prefix = sys.argv[1]
+    cleanup_latex(prefix)
+
