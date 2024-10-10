@@ -47,7 +47,7 @@ vim.g.maplocalleader = ' '
 -- Set foldmethod to syntax globally
 vim.o.foldmethod = 'syntax'
 
-vim.o.textwidth = 80
+vim.o.textwidth = 100
 
 
 
@@ -116,7 +116,7 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
 
       -- Use current buffer in completion
-      '/hrsh7th/cmp-buffer',
+      --'/hrsh7th/cmp-buffer',
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
@@ -148,7 +148,7 @@ require('lazy').setup({
     --"sainnhe/sonokai",
     'tanvirtin/monokai.nvim',
     config = function()
-      vim.cmd.colorscheme 'monokai_soda'
+      vim.cmd.colorscheme 'monokai_pro'
     end,
 
   },
@@ -167,14 +167,14 @@ require('lazy').setup({
   },
 
   {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+    ---- Add indentation guides even on blank lines
+    --'lukas-reineke/indent-blankline.nvim',
+    ---- Enable `lukas-reineke/indent-blankline.nvim`
+    ---- See `:help indent_blankline.txt`
+    --opts = {
+    --  char = '┊',
+    --  show_trailing_blankline_indent = false,
+    --},
   },
 
   -- "gc" to comment visual regions/lines
@@ -195,7 +195,8 @@ require('lazy').setup({
         --       refer to the README for telescope-fzf-native for more instructions.
         build = 'make',
         cond = function()
-          return vim.fn.executable 'make' == 1
+          -- rp for ripgrep
+          return vim.fn.executable 'make' == 1 and vim.fn.executable 'rp' == 1
         end,
       },
     },
@@ -203,11 +204,11 @@ require('lazy').setup({
 
   {
     -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    build = ':TSUpdate',
+    --'nvim-treesitter/nvim-treesitter',
+    --dependencies = {
+    --  'nvim-treesitter/nvim-treesitter-textobjects',
+    --},
+    --build = ':TSUpdate',
   },
   -- neo-tree for nerdtree
   {
@@ -242,6 +243,9 @@ require('lazy').setup({
   },
   {
   "holomorph/vim-freefem",
+  },
+  {
+    "stevearc/conform.nvim",
   }
 
   -- {
@@ -373,69 +377,75 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
-require('nvim-treesitter.configs').setup {
-  -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
-
-  -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-  auto_install = false,
-
-  highlight = { enable = true },
-  indent = { enable = true },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = '<c-space>',
-      node_incremental = '<c-space>',
-      scope_incremental = '<c-s>',
-      node_decremental = '<M-space>',
-    },
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ['aa'] = '@parameter.outer',
-        ['ia'] = '@parameter.inner',
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
-      },
-      goto_next_end = {
-        [']M'] = '@function.outer',
-        [']['] = '@class.outer',
-      },
-      goto_previous_start = {
-        ['[m'] = '@function.outer',
-        ['[['] = '@class.outer',
-      },
-      goto_previous_end = {
-        ['[M'] = '@function.outer',
-        ['[]'] = '@class.outer',
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        ['<leader>a'] = '@parameter.inner',
-      },
-      swap_previous = {
-        ['<leader>A'] = '@parameter.inner',
-      },
-    },
-  },
-}
+--require('nvim-treesitter.configs').setup {
+--  -- Add languages to be installed here that you want installed for treesitter
+--  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
+--
+--  -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
+--  auto_install = false,
+--
+--  highlight = { enable = true },
+--  indent = { enable = true },
+--  incremental_selection = {
+--    enable = true,
+--    keymaps = {
+--      init_selection = '<c-space>',
+--      node_incremental = '<c-space>',
+--      scope_incremental = '<c-s>',
+--      node_decremental = '<M-space>',
+--    },
+--  },
+--  textobjects = {
+--    select = {
+--      enable = true,
+--      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+--      keymaps = {
+--        -- You can use the capture groups defined in textobjects.scm
+--        ['aa'] = '@parameter.outer',
+--        ['ia'] = '@parameter.inner',
+--        ['af'] = '@function.outer',
+--        ['if'] = '@function.inner',
+--        ['ac'] = '@class.outer',
+--        ['ic'] = '@class.inner',
+--      },
+--    },
+--    move = {
+--      enable = true,
+--      set_jumps = true, -- whether to set jumps in the jumplist
+--      goto_next_start = {
+--        [']m'] = '@function.outer',
+--        [']]'] = '@class.outer',
+--      },
+--      goto_next_end = {
+--        [']M'] = '@function.outer',
+--        [']['] = '@class.outer',
+--      },
+--      goto_previous_start = {
+--        ['[m'] = '@function.outer',
+--        ['[['] = '@class.outer',
+--      },
+--      goto_previous_end = {
+--        ['[M'] = '@function.outer',
+--        ['[]'] = '@class.outer',
+--      },
+--    },
+--    swap = {
+--      enable = true,
+--      swap_next = {
+--        ['<leader>a'] = '@parameter.inner',
+--      },
+--      swap_previous = {
+--        ['<leader>A'] = '@parameter.inner',
+--      },
+--    },
+--  },
+--  -- Disable Tree-sitter for Julia
+--  ensure_installed = "all",  -- Or specify the languages you want excluding 'julia'
+--  highlight = {
+--    enable = true,  -- Enable highlighting for all languages
+--    disable = { "julia" },  -- Disable for Julia
+--  },
+--}
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -537,10 +547,19 @@ mason_lspconfig.setup_handlers {
   end
 }
 
-require'lspconfig'.julials.setup{
-    cmd = {"/home/arappapo/.juliaup/bin/julia", "--project=@nvim", "-e", "using LanguageServer; LanguageServerInstance(stdin, stdout, false, \"/path/to/your/project\", Dict())"},
 
+require'lspconfig'.julials.setup{
+    on_new_config = function(new_config, _)
+        local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
+        if require'lspconfig'.util.path.is_file(julia) then
+	    vim.notify("Hello!")
+            new_config.cmd[1] = julia
+        end
+    end
 }
+
+
+--require'lspconfig'.clangd.setup{}
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
@@ -599,5 +618,42 @@ cmp.setup {
   },
 }
 
+
+local o = vim.o
+o.expandtab = true -- expand tab input with spaces characters
+o.smartindent = true -- syntax aware indentations for newline inserts
+o.tabstop = 2 -- num of space characters per tab
+o.shiftwidth = 2 -- spaces per indentation level
+
+vim.api.nvim_set_hl(0, '@lsp.type.comment.cpp', {}) -- syntax highlight inside ifdef
+
+
+require("conform").setup({
+  formatters_by_ft = {
+    cpp = { "clang_format" },  -- Use clang-format for C++ files
+    hpp = { "clang_format" },  -- Use clang-format for C++ header files
+  },
+})
+
+-- Key mapping for full-file formatting using conform.nvim
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.cpp", "*.hpp", "*.c", "*.h" },
+  callback = function(args)
+    require("conform").format({ bufnr = args.buf })
+    print("Formatted buffer " .. args.buf)
+  end,
+})
+
+-- Key mapping for block formatting in visual mode using conform.nvim
+vim.keymap.set("", "<leader>f", function()
+  require("conform").format({ async = true }, function(err)
+    if not err then
+      local mode = vim.api.nvim_get_mode().mode
+      if vim.startswith(string.lower(mode), "v") then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+      end
+    end
+  end)
+end, { desc = "Format code" })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

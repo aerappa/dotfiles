@@ -26,4 +26,7 @@ fish_vi_key_bindings
 export EDITOR=nvim
 fzf_key_bindings
 set fish_greeting fish_greeting + "C'est parti !"
+set -gx PATH /home/ari.rappaport/.juliaup/bin $PATH
+set -gx PATH /home/ari.rappaport/Applications/ParaView-5.12.0-MPI-Linux-Python3.10-x86_64/bin $PATH
+set -gx PATH /home/ari.rappaport/.local/bin $PATH
 alias ls="/usr/bin/ls --color=auto -vp"

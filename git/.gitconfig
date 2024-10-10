@@ -9,3 +9,5 @@
 [user]
 	name = RAPPAPORT Ari
 	email = ari.rappaport@inria.fr
+[init]
+	defaultBranch = main
